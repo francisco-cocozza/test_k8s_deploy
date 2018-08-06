@@ -1,1 +1,10 @@
-
+version: '1.0'
+steps:
+  free:
+    image: alpine
+    commands:
+      - echo pwd
+      - pwd
+      - ls -alh
+      - echo ${{CF_VOLUME_PATH}}
+      - ls ${{CF_VOLUME_PATH}}
