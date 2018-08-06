@@ -6,8 +6,7 @@ steps:
     composition: docker-compose.yml
     composition_candidates:
       test_service:
-        image: ${{build_step}}
-        command: gulp integration_test
-        working_dir: /app
-        environment:
-          - key=value
+        image: tutum/curl
+        command: curl http://wordpress
+        depends_on:
+          - wordpress
