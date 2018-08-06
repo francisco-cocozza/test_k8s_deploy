@@ -1,10 +1,13 @@
 version: '1.0'
 steps:
-  free:
-    image: alpine
-    commands:
-      - echo pwd
-      - pwd
-      - ls -alh
-      - echo ${{CF_VOLUME_PATH}}
-      - ls ${{CF_VOLUME_PATH}}
+  myComposition:
+    type: composition
+    title: My Composition from file
+    composition: docker-compose.yml
+    composition_candidates:
+      test_service:
+        image: ${{build_step}}
+        command: gulp integration_test
+        working_dir: /app
+        environment:
+          - key=value
