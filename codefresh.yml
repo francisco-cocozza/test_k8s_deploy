@@ -7,6 +7,4 @@ steps:
     composition_candidates:
       test_service:
         image: tutum/curl
-        command: curl http://wordpress
-        depends_on:
-          - wordpress
+        command: curl http://web
