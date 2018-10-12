@@ -9,7 +9,7 @@ if (( "$SERVER_VERSION" <= "16" )); then echo using-kubectl-v1.6; else echo usin
 
 
 kubectl version --short=true
-echo 'SERVER_VERSION=$(kubectl version --short=true --context "${KUBECONTEXT}" | grep -i server | cut -d \':\' -f2 | cut -d \'.\' -f2 | sed \'s/[^0-9]*//g\') ==>'
+echo 'SERVER_VERSION=$(kubectl version --short=true --context "${KUBECONTEXT}" | grep -i server | cut -d : -f2 | cut -d . -f2 | sed s/[^0-9]*//g) ==>'
 kubectl version --short=true --context "${KUBECONTEXT}" | grep -i server | cut -d ':' -f2 | cut -d '.' -f2 | sed 's/[^0-9]*//g'
 SERVER_VERSION=$(kubectl version --short=true --context "${KUBECONTEXT}" | grep -i server | cut -d ':' -f2 | cut -d '.' -f2 | sed 's/[^0-9]*//g')
 echo "$SERVER_VERSION <= 6 ??"
